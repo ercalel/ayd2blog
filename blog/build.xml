@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="blog" default="build" basedir="." description="This is an example buildfile for Phing.">
+
+    <target name="saludar">
+        <echo msg="Hola desde phing ..."/>
+    </target>
+    
+    <target name="adios">
+        <echo msg="Adios desde phing ..."/>
+    </target>
+    
+    <target name="clean">
+        <delete dir="reports"/>
+    </target>
+    
+    <target name="prepare">
+        <mkdir dir="reports"/>
+    </target>
+    
+    <target name="seleniumSSH">
+        <echo msg="Conectando al ambiente de pruebas con selenium..."/>
+    </target>
+    
+    <target name="fabircSSH">
+        <echo msg="Conectando a la aplicacion python con fabric..."/>
+    </target>
+    
+    <target name="pruebasUnitarias">
+        <phpunit printsummary="true" haltonfailure="true" pharlocation="/usr/bin/">
+            <formatter todir="reports" type="xml"/>
+            <batchtest>
+                <fileset dir=".">
+                    <include name="pruebaUnitaria.php"/>
+                </fileset>
+            </batchtest>
+            <formatter type="xml" todir="reports" outfile="logfile.xml"/>
+        </phpunit>
+        <phpunitreport infile="reports/logfile.xml"
+                       styledir="/usr/share/php/data/phing/etc"
+                       format="frames"
+                       todir="reports"/>
+    </target>
+    
+    <target name="build" depends="clean,prepare,saludar,pruebasUnitarias,seleniumSSH,fabircSSH,adios"/>   
+    
+</project>
