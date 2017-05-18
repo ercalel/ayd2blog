@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="blog" default="build">
+<project name="blog" default="build" basedir="." description="This is an example buildfile for Phing.">
 
     <target name="saludar">
         <echo msg="Hola desde phing..."/>
@@ -10,11 +10,11 @@
     </target>
     
     <target name="clean">
-        <delete dir="blog/reports"/>
+        <delete dir="reports"/>
     </target>
     
     <target name="prepare">
-        <mkdir dir="blog/reports"/>
+        <mkdir dir="reports"/>
     </target>
     
     <target name="seleniumSSH">
@@ -29,13 +29,13 @@
         <phpunit printsummary="true" haltonfailure="true" pharlocation="/usr/bin/">
             <formatter todir="reports" type="xml"/>
             <batchtest>
-                <fileset dir="blog/">
+                <fileset dir=".">
                     <include name="pruebaUnitaria.php"/>
                 </fileset>
             </batchtest>
-            <formatter type="xml" todir="bolog/reports" outfile="logfile.xml"/>
+            <formatter type="xml" todir="reports" outfile="logfile.xml"/>
         </phpunit>
-        <phpunitreport infile="blog/reports/logfile.xml"
+        <phpunitreport infile="reports/logfile.xml"
                        styledir="/usr/share/php/data/phing/etc"
                        format="frames"
                        todir="reports"/>
