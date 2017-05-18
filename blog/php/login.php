@@ -7,7 +7,7 @@ if (!empty($_POST)) {
 
             $user_id = null;
             $sql1 = "select * from user where username=\"$_POST[username]\" and password=\"$_POST[password]\" ";
-            $query = $con->query($sql1);      
+            $query = $con->query($sql1);
             while ($r = $query->fetch_array()) {
                 $user_id = $r["id"];
                 break;
@@ -22,4 +22,3 @@ if (!empty($_POST)) {
         }
     }
 }
-?>
