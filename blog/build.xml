@@ -31,7 +31,6 @@
             <batchtest>
                 <fileset dir=".">
                     <include name="pruebaUnitaria.php"/>
-                    <echo msg="Hola ... hola ..."/>
                 </fileset>
             </batchtest>
             <formatter type="xml" todir="reports" outfile="logfile.xml"/>
