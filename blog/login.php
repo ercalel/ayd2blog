@@ -13,7 +13,7 @@
 
                     <form role="form" name="login" action="php/login.php" method="post">
                         <div class="form-group">
-                            <label for="username">Nombre de usuario o email</label>
+                            <label for="username">Nombre de usuario</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Nombre de usuario">
                         </div>
                         <div class="form-group">
