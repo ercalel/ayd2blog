@@ -1,4 +1,3 @@
-
 use blog;
 
 create table user(

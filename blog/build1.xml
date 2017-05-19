@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="blog" default="build" basedir="." description="This is an example buildfile for Phing.">
+<project name="blog" default="build" basedir="/var/lib/jenkins/workspace/blog/blog/" description="This is an example buildfile for Phing.">
 
     <target name="saludar">
-        <echo msg="Hola desde phing ..."/>
+        <echo msg="Hola desde phing..."/>
     </target>
     
     <target name="adios">
-        <echo msg="Adios desde phing ..."/>
+        <echo msg="Adios desde phing... "/>
     </target>
     
     <target name="clean">
@@ -27,7 +27,7 @@
     
     <target name="pruebasUnitarias">
         <phpunit printsummary="true" haltonfailure="true" pharlocation="/usr/bin/">
-            <formatter todir="reports" type="xml"/>
+            <formatter todir="reports/logs" type="xml"/>
             <batchtest>
                 <fileset dir=".">
                     <include name="pruebaUnitaria.php"/>
